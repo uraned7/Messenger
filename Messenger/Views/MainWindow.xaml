@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Messenger"
         mc:Ignorable="d"
-        Title="Почтовый голубь"
-        MinHeight="600" MinWidth="800"
+        Title="Голубь"
+        MinHeight="650" MinWidth="800"
         Height="700" Width="1060"
         MaxHeight="760" MaxWidth="1100"
         >

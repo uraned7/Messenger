@@ -5,65 +5,54 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Messenger.Views"
       mc:Ignorable="d" 
-      d:DesignHeight="640" d:DesignWidth="1000"
+      d:DesignHeight="760" d:DesignWidth="1060"
       Title="Messenger"
       Style="{StaticResource  MessengerPage}">
-
-    <Grid>
+    <Page.Resources>
+        <ImageBrush x:Key="Contact" ImageSource="pack://application:,,,/Resources/Images/user.png"/>
+    </Page.Resources>
+    <Grid Background="White">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.3*"/>
+            <ColumnDefinition Width="250"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="40"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <!--Поиск + Хамбургер-->
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-            <Button x:Name="Hamburger" Width="26" Height="26"
-                    Margin="10 0 10 0" Style="{StaticResource SecBut}">
-                <Image Source="pack://application:,,,/Resources/Icons/Hamburger.png"/>
-            </Button>
-            <!--Поиск-->
-            <Grid>
-                <TextBox Width="180" Height="30"/>
-                <Image Height="15" Width="15" HorizontalAlignment="Left" Margin=" 10 0 0 0"
-                       Source="pack://application:,,,/Resources/Icons/Search.png"/>
-                <TextBlock x:Name="SearchTip" Text="Поиск" Style="{StaticResource Tip}"
-                           Margin="40 5 0 0" FontSize="14" />
-            </Grid>
-        </StackPanel>
-        
-        <!--Список контактов (TODO)-->
-        <ListBox Grid.Row="1">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <Image Height="64" Width="64" Source="pack://application:,,,/Resources/Images/user.png"/>
-                        <StackPanel>
-                            <TextBlock Text="Имя пользователя"/>
-                            <TextBlock Text="Состояние души" Foreground="{StaticResource clrSecondaryText}"/>
-                        </StackPanel>
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-        
-        
-        <!--Отправка сообщения Textbox'ом-->
-        <Grid Background="Transparent" Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" >
-            <TextBox Margin="50 5" Width="auto"/>
-            <TextBlock Name="MessageTip" Text="Введите сообщение..." Style="{StaticResource Tip}"
-                       Margin=" 60 0" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-            <!--Отправка сообщения кнопкой-->
-            <Button x:Name="SendBut" Style="{StaticResource SecBut}" HorizontalAlignment="Right"
-                    Margin="0 0 65 0">
-                <Image Height="25" Width="25" 
-                       Source="pack://application:,,,/Resources/Icons/Send.png"/>
-            </Button>
+        <!--NavigationDrawer-->
+        <Grid x:Name="NavDraw" Grid.RowSpan="2" >
+            <Border BorderThickness="1" BorderBrush="{StaticResource clrSecondaryText}">
+                <Frame x:Name="SideFrame" NavigationUIVisibility="Hidden"/>
+            </Border>
         </Grid>
-        <Image Grid.Row="1" Grid.Column="1" Panel.ZIndex="-1"
+        <!--Отображение контакта с которым ведётся переписка-->
+        <Grid Grid.Column="1">
+            <StackPanel Orientation="Horizontal">
+                <Ellipse x:Name="ContactAvatar" Width="32" Height="32"
+                         Fill="{StaticResource Contact}" Margin="10 0 20 0"/>
+                <TextBlock Text="Имя Фамилия" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Grid>
+        
+        <Grid Grid.Row="1" Grid.Column="1" >
+            <!--Отображение сообщений-->
+            
+            <!--Отправка сообщения Textbox'ом-->
+            <Grid  VerticalAlignment="Bottom" >
+                <TextBox Margin="50 5" Width="auto"/>
+                <TextBlock Name="MessageTip" Text="Введите сообщение..." Style="{StaticResource Tip}"
+                       Margin=" 60 0" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                <!--Отправка сообщения кнопкой-->
+                <Button x:Name="SendBut" Style="{StaticResource IconButton}" HorizontalAlignment="Right"
+                    Margin="0 0 65 0">
+                    <Image Source="pack://application:,,,/Resources/Icons/Send.png"/>
+                </Button>
+            </Grid>
+        </Grid>
+
+        <Image Grid.Row="1" Grid.Column="1" Panel.ZIndex="-1" Stretch="Fill"
                Source="pack://application:,,,/Resources/Images/Background.png"/>
     </Grid>
 </Page>

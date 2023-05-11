@@ -4,111 +4,13 @@
              xmlns:local="clr-namespace:Messenger"
              StartupUri="Views/MainWindow.xaml">
     <Application.Resources>
-        <!--Цвета-->
-        <SolidColorBrush x:Key="clrPrimary" Color="#AB69FF"/>
-        <SolidColorBrush x:Key="clrSecondaryText" Color="#909090"/>
-
-        <!--Шрифты-->
-        <FontFamily x:Key="OpenSans">pack://application:,,,/Resources/Fonts/#Open Sans</FontFamily>
-
-        <!--Стили-->
-
-        <Style x:Key="BaseMessengerPage" TargetType="{x:Type Page}">
-            <Style.Setters>
-                <Setter Property="FontFamily" Value="{StaticResource OpenSans}"/>
-            </Style.Setters>
-        </Style>
-        
-        <Style x:Key="LogAuthPage" TargetType="{x:Type Page}" BasedOn="{StaticResource BaseMessengerPage}">
-            <Setter Property="FontSize"
-                    Value="22" />
-        </Style>
-
-        <Style x:Key="MessengerPage" TargetType="{x:Type Page}" BasedOn="{StaticResource BaseMessengerPage}">
-            <Setter Property="FontSize"
-                    Value="16"/>
-        </Style>
-
-        <Style TargetType="{x:Type Grid}">
-            <Style.Setters>
-                <Setter Property="Background"
-                        Value="White"/>
-            </Style.Setters>
-        </Style>
-        
-        <Style x:Key="Tip" TargetType="{x:Type TextBlock}">
-            <Style.Setters>
-                <Setter Property="Background"
-                        Value="Transparent"/>
-                <Setter Property="Foreground"
-                        Value="{StaticResource clrSecondaryText}"/>
-                <Setter Property="FontSize"
-                        Value="24"/>
-                <Setter Property="Margin"
-                        Value="24 13 0 0"/>
-                <Setter Property="IsHitTestVisible"
-                        Value="False"/>
-                <Setter Property="HorizontalAlignment" Value="Left"/>
-            </Style.Setters>
-        </Style>
-        
-        <Style TargetType="{x:Type TextBox}">
-            <Style.Setters>
-                <Setter Property="Width"
-                        Value="320"/>
-                <Setter Property="Height"
-                        Value="60"/>
-                <Setter Property="VerticalContentAlignment"
-                        Value="Center"/>
-            </Style.Setters>
-            <Style.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="8"/>
-                </Style>
-            </Style.Resources>
-        </Style>
-
-        <Style TargetType="{x:Type PasswordBox}">
-            <Style.Setters>
-                <Setter Property="Width"
-                        Value="320"/>
-                <Setter Property="Height"
-                        Value="60"/>
-                <Setter Property="VerticalContentAlignment"
-                        Value="Center"/>
-            </Style.Setters>
-            <Style.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="8"/>
-                </Style>
-            </Style.Resources>
-        </Style>
-
-        <Style x:Key="ImpBut" TargetType="{x:Type Button}">
-            <Style.Setters>
-                <Setter Property="Height"
-                        Value="55"/>
-                <Setter Property="Background"
-                        Value="{StaticResource clrPrimary}"/>
-            </Style.Setters>
-            <Style.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius"
-                            Value="6"/>
-                </Style>
-            </Style.Resources>
-        </Style>
-        <Style x:Key="SecBut" TargetType="{x:Type Button}">
-            <Style.Setters>
-                <Setter Property="Height"
-                        Value="auto"/>
-                <Setter Property="Foreground"
-                        Value="{StaticResource clrSecondaryText}"/>
-                <Setter Property="Background"
-                        Value="Transparent"/>
-                <Setter Property="BorderThickness"
-                        Value="0"/>
-            </Style.Setters>
-        </Style>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Themes/Colors.xaml"/>
+                <ResourceDictionary Source="Themes/Fonts.xaml"/>
+                <ResourceDictionary Source="Themes/BasicElements.xaml"/>
+                <ResourceDictionary Source="Themes/Buttons.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

@@ -16,15 +16,23 @@ using System.Windows.Shapes;
 namespace Messenger.Views
 {
     /// <summary>
-    /// Interaction logic for Messenger.xaml
+    /// Interaction logic for Edit.xaml
     /// </summary>
-    public partial class Messenger : Page
+    public partial class Edit : Page
     {
-        public Messenger()
+        public Edit()
         {
             InitializeComponent();
-            SideFrame.Navigate(new Contacts());
+        }
 
+        private void BackBut_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
+        }
+
+        private void SaveBut_Click(object sender, RoutedEventArgs e)
+        {
+            //TO-DO Сохранение изменений
         }
     }
 }

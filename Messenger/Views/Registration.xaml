@@ -5,18 +5,23 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Messenger.Views"
       mc:Ignorable="d" 
-      d:DesignHeight="640" d:DesignWidth="1000"
+      d:DesignHeight="760" d:DesignWidth="1060"
       Title="Registration"
       Style="{StaticResource LogAuthPage}">
-
-    <Grid>
+    <Page.Resources>
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="Margin" Value="10 10 0 0"/>
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
+    </Page.Resources>
+    <Grid Background="White">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="370"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.05*"/>
+            <RowDefinition Height="30"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
@@ -35,22 +40,21 @@
             </Grid>
             <!--Пароль-->
             <Grid Margin="0 0 0 33">
-                <Button  Width="32" Height="32"
-                         Panel.ZIndex="2" HorizontalAlignment="Right"
-                         Style="{StaticResource SecBut}" Margin="0 0 20 0">
+                <Button  Panel.ZIndex="2" HorizontalAlignment="Right"
+                         Style="{StaticResource IconButton}" Margin="0 0 40 0">
                     <Image Source="pack://application:,,,/Resources/Icons/Eye.png"/>
                 </Button>
-                
+
                 <PasswordBox x:Name="TBPassword" Margin="0"/>
 
                 <TextBlock x:Name="PasswordTip" Text="Пароль"  Style="{StaticResource Tip}"/>
             </Grid>
+
             <!--Повторный пароль-->
             <Grid Margin="0 0 0 33">
 
-                <Button  Width="32" Height="32"
-                         Panel.ZIndex="2" HorizontalAlignment="Right"
-                         Style="{StaticResource SecBut}" Margin="0 0 20 0">
+                <Button  Panel.ZIndex="2" HorizontalAlignment="Right"
+                         Style="{StaticResource IconButton}" Margin="0 0 40 0">
                     <Image Source="pack://application:,,,/Resources/Icons/Eye.png"/>
                 </Button>
 
@@ -61,20 +65,34 @@
             <!--Регистрация-->
             <Button x:Name="RegBut" Width="330" Style="{StaticResource ImpBut}" Click="RegBut_Click">
                 <Button.Content>
-                    <TextBlock Text="Зарегистрироваться" FontSize="32" Foreground="White"/>
+                    <TextBlock Text="Зарегистрироваться" FontSize="30" Foreground="White"/>
                 </Button.Content>
             </Button>
 
                 <!--Переход на окно входа в мессенджер-->
             <Button x:Name="AuthBut" HorizontalAlignment="Center" VerticalAlignment="Bottom"
-                    Style="{StaticResource SecBut}" Margin="0 40 0 20" Click="AuthBut_Click">
+                    Style="{StaticResource SecBut}" Margin="0 25 0 20" Click="AuthBut_Click">
                 <Button.Content>
-                    <TextBlock>
+                    <TextBlock FontSize="22">
                         Есть аккаунт? <Bold><Underline> Войти</Underline></Bold>
                     </TextBlock>
                 </Button.Content>
             </Button>
 
         </StackPanel>
+        <!--Требования от пароля-->
+        <Grid Grid.Row="1" Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.8*"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="1" Margin="10 0 0 0">
+                <TextBlock x:Name="PWLength" Text="• Не менее 4 и не более 30 знаков" TextWrapping="Wrap"/>
+                <TextBlock x:Name="PWUppSym" Text="• Содержит хотя бы 1 заглавный символ" TextWrapping="Wrap"/>
+                <TextBlock x:Name="PWLowSym" Text="• Содержит хотя бы 1 строчный символ" TextWrapping="Wrap"/>
+                <TextBlock x:Name="PWSpecSym" Text="• Содержит хотя бы 1 спец. символ" TextWrapping="Wrap"/>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Page>
